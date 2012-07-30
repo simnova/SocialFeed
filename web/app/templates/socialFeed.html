@@ -1,0 +1,11 @@
+<% _.each(collection,function(collectionItem){
+ %>
+<div class="socialFeedItem clearfix" style="background-size: 220px; background:url(<%= collectionItem.image %>); background-repeat:no-repeat; min-height:220px;">
+  <div style="margin-top:150px;overflow:hidden;max-height:70px;background-color:rgba(0, 0, 0, 0.52)">
+    <span style="background-color:yellow"><%= collectionItem.source %></span>
+    <span style="background-color:green;color:white"><%= collectionItem.username %></span>
+    <span style="background-color:blue;color:white"><%= collectionItem.description %></span>
+  </div>
+</div>
+
+<% }); %>
