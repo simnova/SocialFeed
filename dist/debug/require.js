@@ -12203,7 +12203,7 @@ function(namespace, Backbone) {
 
   // This will fetch the tutorial template and render it.
   WordGenerator.Views.Default = Backbone.View.extend({
-    template: "app/templates/WordGenerator.html",
+    template: "app/templates/wordGenerator.html",
 
     events: {
       "change #first" : "generateWord",
