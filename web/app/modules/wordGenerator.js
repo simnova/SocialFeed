@@ -28,16 +28,7 @@ function(namespace, Backbone) {
       "change #middle" : "generateWord",
       "change #last" : "generateWord"
     },
-
-    generateWord: function(){
-      var view = this;
-      var first = view.collection.get($("#first").val()).get("first");
-      var middle = view.collection.get($("#middle").val()).get("middle");
-      var last = view.collection.get($("#last").val()).get("last");
-      $("#results").html(first + middle + last);
-    },
-
-    render: function(done) {
+    initialize: function(){
       var view = this;
 
       view.collection = new WordGenerator.Collection([
@@ -67,6 +58,30 @@ function(namespace, Backbone) {
         { id:24, root:"Delicate", first: "Del", middle: "eli", last: "cate" },
         { id:25, root:"Piney", first: "Pine", middle: "ine", last: "iney" }
       ]);
+
+
+    },
+    generateWord: function(){
+      var view = this;
+
+      view.setWord(
+          $("#first").val(),
+          $("#middle").val(),
+          $("#last").val()
+        );
+    },
+    setWord: function(firstId,secondId,thirdId){
+      var view = this;
+      var first = view.collection.get(firstId).get("first");
+      var middle = view.collection.get(secondId).get("middle");
+      var last = view.collection.get(thirdId).get("last");
+      $("#results").html(first + middle + last);
+      $("#first").val(firstId);
+      $("#middle").val(secondId);
+      $("#last").val(thirdId);
+    },
+    render: function(done) {
+      var view = this;
 
       // Fetch the template, render it to the View element and call done.
       namespace.fetchTemplate(this.template, function(tmpl) {
