@@ -2,8 +2,6 @@ define(['jquery','use!underscore'], function ($,_) {
 
   // Constructor
   function TwitterFeed() {
-    console.log("constructed");
-
   };
 
   TwitterFeed.prototype = {
@@ -13,8 +11,6 @@ define(['jquery','use!underscore'], function ($,_) {
         url: "http://search.twitter.com/search.json?q=" + searchTerm + "&rpp=100&include_entities=true&callback=?",
         dataType: 'json',
         success: function(json) {
-          console.log('success twitter');
-
           var results = _.map(json.results,function(item){
 
             var findMedia = function(mediaCollection){
@@ -35,16 +31,13 @@ define(['jquery','use!underscore'], function ($,_) {
         }
       }).error(
         function(xhr, errorType, exception) {
-            console.log('error?');
             defer.reject();
         }
       ).complete(
         function() {
-            console.log('complete twitter');
         }
       );
 
-      console.log("searched");
       return defer.promise();
     }
 

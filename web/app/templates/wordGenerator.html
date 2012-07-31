@@ -1,0 +1,23 @@
+
+<select id="first">
+<% _.each(collection.models,function(collectionItem){
+ %>
+ <option value="<%= collectionItem.get("id") %>"><%= collectionItem.get("root") %></option>
+<% }); %>
+</select>
+
+<select id="middle">
+<% _.each(collection.models,function(collectionItem){
+ %>
+ <option value="<%= collectionItem.get("id") %>"><%= collectionItem.get("root") %></option>
+<% }); %>
+</select>
+
+<select id="last">
+<% _.each(collection.models,function(collectionItem){
+ %>
+ <option value="<%= collectionItem.get("id") %>"><%= collectionItem.get("root") %></option>
+<% }); %>
+</select>
+
+<div id="results"></div>

@@ -42,7 +42,6 @@ function(namespace, Backbone, InstagramFeed,TwitterFeed,FacebookFeed) {
         // Fetch the template, render it to the View element and call done.
         namespace.fetchTemplate(view.template, function(tmpl) {
          // view.el.innerHTML = tmpl({collection: view.collection});
-         console.log(collectionItems);
          $(tmpl({collection: collectionItems})).appendTo(view.$el);
         // /  appendTo
           // If a done function is passed, call it with the element
@@ -54,10 +53,10 @@ function(namespace, Backbone, InstagramFeed,TwitterFeed,FacebookFeed) {
                 if (_.isFunction(done)) {
             done(view.el);
           }
-      var searchTerm = "chunkysoup";
-      instagramFeed.search(searchTerm).done(function(results){renderCollection(results)});
-      twitterFeed.search(searchTerm).done(function(results){renderCollection(results)});
-      facebookFeed.search(searchTerm).done(function(results){renderCollection(results)});
+      var searchTerm = "olympics";
+      instagramFeed.search(searchTerm).done(function(results){renderCollection(results);});
+      twitterFeed.search(searchTerm).done(function(results){renderCollection(results);});
+      facebookFeed.search(searchTerm).done(function(results){renderCollection(results);});
 /*
       $.when(
         instagramFeed.search("olympics"),

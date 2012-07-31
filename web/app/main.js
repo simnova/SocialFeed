@@ -7,14 +7,15 @@ require([
   "use!backbone",
 
   // Modules
+  "modules/wordGenerator",
   "modules/example",
   "modules/socialFeed",
 
   //Plugins
-  "use!jqueryMasonry",
+  "use!jqueryMasonry"
 ],
 
-function(namespace, $, Backbone, Example, SocialFeed) {
+function(namespace, $, Backbone, WordGenerator, Example, SocialFeed) {
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
@@ -51,6 +52,12 @@ function(namespace, $, Backbone, Example, SocialFeed) {
         }
       });
 
+      var wordGenerator = new WordGenerator.Views.Default();
+        wordGenerator.render(function(el) {
+        $("#wordGenerator").html(el);
+      });
+
+
       $("#socialFeed").masonry({
           // options
           itemSelector : '.socialFeedItem',
@@ -73,7 +80,8 @@ function(namespace, $, Backbone, Example, SocialFeed) {
     app.router = new Router();
 
     // Trigger the initial route and enable HTML5 History API support
-    Backbone.history.start({ pushState: true });
+    // Backbone.history.start({ pushState: true });
+    Backbone.history.start({pushState: true, root: "/SocialFeed/"});
   });
 
   // All navigation that is relative should be passed through the navigate
