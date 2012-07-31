@@ -80,8 +80,12 @@ function(namespace, $, Backbone, WordGenerator, Example, SocialFeed) {
     app.router = new Router();
 
     // Trigger the initial route and enable HTML5 History API support
-    // Backbone.history.start({ pushState: true });
-    Backbone.history.start({pushState: true, root: "/SocialFeed/"});
+    
+    // DEVELOPMENT
+    Backbone.history.start({ pushState: true });
+
+    // PRODUCTION
+    //Backbone.history.start({pushState: true, root: "/SocialFeed/"});
   });
 
   // All navigation that is relative should be passed through the navigate

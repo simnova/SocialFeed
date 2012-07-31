@@ -50,9 +50,9 @@ function(namespace, Backbone, InstagramFeed,TwitterFeed,FacebookFeed) {
 
       };
 
-                if (_.isFunction(done)) {
+      if (_.isFunction(done)) {
             done(view.el);
-          }
+      }
       var searchTerm = "olympics";
       instagramFeed.search(searchTerm).done(function(results){renderCollection(results);});
       twitterFeed.search(searchTerm).done(function(results){renderCollection(results);});
